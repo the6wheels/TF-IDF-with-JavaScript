@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TP-RI</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!-- <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous"> -->
+  <style type="text/css">
+    body {
+      background: #F6F6F6 !important;
+    }
+
+    /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+
+    .file {
+      margin-top: 24px;
+      font-weight: bold;
+    }
+
+    .text {
+      border-style: solid;
+      border-width: 1px;
+      padding: 20px;
+    }
+
+    .dropzone {
+      border: 2px dashed #dedede;
+      border-radius: 5px;
+      background: #f5f5f5;
+    }
+
+    .dropzone i {
+      font-size: 5rem;
+    }
+
+    .dropzone .dz-message {
+      color: rgba(0, 0, 0, .54);
+      font-weight: 500;
+      font-size: initial;
+      text-transform: uppercase;
+    }
+
+    .span-or {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    margin-left: -25px;
+    background-color: #fff;
+    width: 50px;
+    text-align: center;
+  }
+  .hr-or {
+    background-color: #cdcdcd;
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+  }
+footer.nb-footer {
+background: #222;
+border-top: 4px solid #b78c33; }
+footer.nb-footer .about {
+margin: 0 auto;
+margin-top: 40px;
+max-width: 1170px;
+text-align: center; }
+footer.nb-footer .about p {
+font-size: 13px;
+color: #999;
+margin-top: 30px; }
+footer.nb-footer .about .social-media {
+margin-top: 15px; }
+footer.nb-footer .about .social-media ul li a {
+display: inline-block;
+width: 45px;
+height: 45px;
+line-height: 45px;
+border-radius: 50%;
+font-size: 16px;
+color: #b78c33;
+border: 1px solid rgba(255, 255, 255, 0.3); }
+footer.nb-footer .about .social-media ul li a:hover {
+background: #b78c33;
+color: #fff;
+border-color: #b78c33; }
+footer.nb-footer .footer-info-single {
+margin-top: 30px; }
+footer.nb-footer .footer-info-single .title {
+color: #aaa;
+text-transform: uppercase;
+font-size: 16px;
+border-left: 4px solid #b78c33;
+padding-left: 5px; }
+footer.nb-footer .footer-info-single ul li a {
+display: block;
+color: #aaa;
+padding: 2px 0; }
+footer.nb-footer .footer-info-single ul li a:hover {
+color: #b78c33; }
+footer.nb-footer .footer-info-single p {
+font-size: 13px;
+line-height: 20px;
+color: #aaa; }
+footer.nb-footer .copyright {
+margin-top: 15px;
+background: #111;
+padding: 7px 0;
+color: #999; }
+footer.nb-footer .copyright p {
+margin: 0;
+padding: 0; }
+    
+  </style>
+
+</head>
+
+<body>
+
+  <nav id="nav">
+    <ul class="container">
+
+      <li><a href="https://www.hadjazi.ml">TP-RI by "Hadjazi Mohammed Hisham"</a></li>
+    </ul>
+  </nav>
+  <center>
+    <h2 style="margin-top: 25px;"><small class="text-muted">What is TF_IDF ?</small></h2>
+    <p class="lead" style="margin-top: 25px;">
+
+      TF-IDF is a statistical measure that evaluates how relevant a word is to a document in a collection of documents.
+      This is done by multiplying two metrics: how many times a word appears in a document, and the inverse document
+      frequency of the word across a set of documents.
+
+      It has many uses, most importantly in automated text analysis, and is very useful for scoring words in machine
+      learning algorithms for Natural Language Processing (NLP).
+
+      TF-IDF (term frequency-inverse document frequency) was invented for document search and information retrieval. It
+      works by increasing proportionally to the number of times a word appears in a document, but is offset by the
+      number of documents that contain the word. So, words that are common in every document, such as this, what, and
+      if, rank low even though they may appear many times, since they don’t mean much to that document in particular.
+
+      However, if the word Bug appears many times in a document, while not appearing many times in others, it probably
+      means that it’s very relevant. For example, if what we’re doing is trying to find out which topics some NPS
+      responses belong to, the word Bug would probably end up being tied to the topic Reliability, since most responses
+      containing that word would be about that topic.
+
+
+    </p>
+
+
+
+
+
+    <p style="margin-top: 45px;">
+
+    <form action="/file-upload" class="dropzone dz-clickable" id="my-dropzone">
+      <div id="drop_zone" class="dz-message d-flex flex-column">
+        <i class="material-icons text-muted">يمكنك وضع الملفات هنا<br />.txt files only</i>
+        Drag &amp; Drop here please.
+      </div>
+    </form>
+    </p>
+  </center>
+
+  <div id="gg"></div>
+
+  <p>
+
+  <h3 id="hhhfff"></h3>
+  <p>
+  <div class="list-group">
+    <ol class="list-group list-group-numbered" id="list">
+      <h2 class="text-center" id="selected"></h2>
+    </ol>
+  </div>
+  </p>
+
+
+  </p>
+
+
+
+  <div id="showOrHide">
+
+
+
+    <div class="d-flex justify-content-center">
+
+      <button class="btn btn-secondary btn-sm custom" onclick="myFunction()">2. Click to see the list of all tokens
+        minimized</button>
+    </div>
+    <p id="demo"></p>
+
+
+
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-secondary btn-sm custom" onclick="myFunction2()">3. After removing stop words</button>
+    </div>
+    <p id="demo2"></p>
+
+
+
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-secondary btn-sm custom" onclick="myFunction3()">4. After applying portstemer
+        algorthim</button>
+    </div>
+    <p id="demo3"></p>
+
+
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-secondary btn-sm custom" onclick="myFunction4()">5. After sorting all tokens</button>
+    </div>
+    <p id="demo4"></p>
+
+
+
+  </div>
+
+
+  <div class="d-flex justify-content-center">
+
+    <button class="btn btn-danger btn-sm custom" onclick="showOrHideDiv()">Click To Show or Hide steps 2 to 5</button>
+  </div>
+  <p id="demff"></p>
+  <div class="d-flex justify-content-center">
+
+    <button class="btn btn-success btn-sm custom" onclick="showTFIDF()">6,7,8,9.Matrix of TF-IDF</button>
+
+  </div>
+  <br>
+
+  <div id="container"></div>
+  <p id="results"></p>
+
+
+
+
+  <!-- Scripts -->
+  <script src="js/p5.js" type="text/javascript"></script>
+  <script src="js/p5.dom.js" type="text/javascript"></script>
+  <script src="js/stylejs.js" type="text/javascript"></script>
+  <script src="js/function_tfidf.js" type="text/javascript"></script>
+  <script src="js/bootstrap.bundle.js" type="text/javascript"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.scrolly.min.js"></script>
+  <script src="js/browser.min.js"></script>
+  <script src="js/breakpoints.min.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+  <!-- ======= Footer ======= -->
+  <footer style="margin: 0 auto;" class="nb-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="about">
+            <img src="images/logo.png" class="img-responsive center-block" alt="">
+            <p>Bootstrap Footer example snippets with CSS, Javascript and HTML. Code example of bootstrap-3 footer using
+              HTML, Javascript, jQuery, and CSS. 5 Beautiful and Responsive Footer Templates. Pin a fixed-height footer to
+              the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
+  
+            <div class="social-media">
+              <ul class="list-inline">
+                <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-facebook"></i></a></li>
+                <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-twitter"></i></a></li>
+                <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-3 col-sm-6">
+          <div class="footer-info-single">
+            <h2 class="title">Help Center</h2>
+            <ul class="list-unstyled">
+              <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> How to Pay</a>
+              </li>
+              <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> FAQ's</a></li>
+              <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Sitemap</a>
+              </li>
+              <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Delivery
+                  Info</a></li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="col-md-3 col-sm-6">
+          <div class="footer-info-single">
+            <h2 class="title">Customer information</h2>
+            <ul class="list-unstyled">
+              <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> About Us</a>
+              </li>
+              <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> FAQ's</a></li>
+              <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Sell Your
+                  Items</a></li>
+              <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Contact Us</a>
+              </li>
+              <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> RSS</a></li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="col-md-3 col-sm-6">
+          <div class="footer-info-single">
+            <h2 class="title">Security & privacy</h2>
+            <ul class="list-unstyled">
+              <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Terms Of
+                  Use</a></li>
+              <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Privacy
+                  Policy</a></li>
+              <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Return /
+                  Refund Policy</a></li>
+              <li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Store
+                  Locations</a></li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="col-md-3 col-sm-6">
+          <div class="footer-info-single">
+            <h2 class="title">Payment</h2>
+            <p>Sample HTML page with Twitter's Bootstrap. Code example of Easy Sticky Footer using HTML, Javascript,
+              jQuery, and CSS. This bootstrap tutorial covers all the major elements of responsive</p>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <section class="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <p>Copyright © 2017. Your Company.</p>
+          </div>
+          <div class="col-sm-6"></div>
+        </div>
+      </div>
+    </section>
+  </footer>
+  <!-- End  Footer -->
+</html>
